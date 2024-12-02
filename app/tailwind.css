@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+html,
+body {
+  @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-300 font-sans;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif text-gray-800 dark:text-gray-100;
+}
+
+/* 链接样式 */
+a {
+  @apply text-gray-700 underline hover:text-gray-500 transition-colors dark:text-gray-300 dark:hover:text-gray-400;
+}
+
+/* 按钮样式 */
+button {
+  @apply bg-gray-900 text-white rounded-md px-4 py-2 shadow-md transition-transform transform hover:scale-105 hover:shadow-lg dark:bg-gray-800 dark:hover:bg-gray-700;
+}
+
+/* 表单样式 */
+input,
+textarea,
+select {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700;
+}
+
+label {
+  @apply block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply border-gray-500 ring-2 ring-gray-500 dark:border-gray-400 dark:ring-gray-400;
+}
+
+/* 卡片样式 */
+.card {
+  @apply bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-md transition hover:shadow-lg dark:bg-gray-900 dark:border-gray-700;
+}
+
+/* 按钮组样式 */
+.btn-group {
+  @apply flex gap-4;
+}
+
+.btn-primary {
+  @apply bg-gray-900 text-white rounded-md px-6 py-3 font-medium tracking-wide shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 rounded-md px-6 py-3 font-medium tracking-wide shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600;
+}
+
+/* 列表样式 */
+.list-item {
+  @apply flex justify-between items-center bg-gray-50 border-b border-gray-200 py-4 px-6 dark:bg-gray-900 dark:border-gray-800;
+}
+
+.list-item:hover {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+/* 表格样式 */
+table {
+  @apply w-full border-collapse bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-900;
+}
+
+thead {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+thead th {
+  @apply text-left text-gray-700 px-4 py-2 dark:text-gray-300;
+}
+
+tbody tr {
+  @apply border-b border-gray-200 dark:border-gray-800;
+}
+
+tbody tr:last-child {
+  @apply border-b-0;
+}
+
+tbody td {
+  @apply text-gray-600 px-4 py-2 dark:text-gray-400;
+}
+
+/* 其他细节优化 */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-lg dark:bg-gray-700;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
+}

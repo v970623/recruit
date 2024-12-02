@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String  @unique
+  password String
+  name     String?
+  role     String  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  applications Application[]
+  publishedJobs Job[]
+}
+
+model Job {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  location    String
+  salary      Float?
+  postedAt    DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publisherId String   @db.ObjectId
+  status      String   @default("OPEN") // "OPEN", "CLOSED"
+
+  publisher   User     @relation(fields: [publisherId], references: [id])
+
+  // 关系
+  applications Application[]
+}
+
+model Application {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  status      String   @default("PENDING") // "PENDING", "APPROVED", "REJECTED"
+  appliedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  coverLetter String   
+  resumeUrl   String?  
+
+  applicantId String   @db.ObjectId
+  applicant   User     @relation(fields: [applicantId], references: [id])
+  jobId       String   @db.ObjectId
+  job         Job      @relation(fields: [jobId], references: [id])
+}
